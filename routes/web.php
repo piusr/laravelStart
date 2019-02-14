@@ -18,3 +18,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Route that prevents getting page not found in vue router
+//Route::get('{path}', "HomeController@index")->where('path', '([A-Z\d-\/_.]+)?');
+
+Route::get('/{any}', 'HomeController@index')->where('any', '.*');
